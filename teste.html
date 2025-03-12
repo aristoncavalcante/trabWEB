@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Atividade Avaliativa 2</title>
+
+    <style>
+        body {
+            background-image: url('https://mais.opovo.com.br/_midias/jpg/2024/03/15/capa_cuscuz-25982304.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #E8E4C9;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .Preparo, .Ingredientes, .ref {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .ref {
+            text-align: center;
+            margin-top: 10px;
+            max-width: 250px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .recipe-button {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .recipe-button:hover {
+            background-color: #cc8400;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .Preparo, .Ingredientes {
+                max-width: 90%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="Ingredientes" id="ingredientes">
+            <h2 id="tituloIngredientes">Ingredientes Para o Cuscuz</h2>
+            <p>Para o Cuscuz:</p>
+            <ul>
+                <li><b>2</b> xícaras (chá) de flocos de milho</li>
+                <li><b>1</b> xícara (chá) de água</li>
+                <li><b>1</b> colher (chá) de sal</li>
+                <li><b>4</b> colheres (sobremesa) de <a href="https://www.qualy.com.br">Qualy Cremosa</a></li>
+                <li><b>1</b> colher (sopa) de pimentas biquinho em conserva bem picadas</li>
+                <li>Coentro picado a <b>gosto</b></li>
+            </ul>
+        </div>
+
+        <div class="Preparo">
+            <h2 id="tituloPreparo">Modo de Preparo</h2>
+            <p>Para o Cuscuz:</p>
+            <ul>
+                <li>Em um recipiente, misture a farinha de flocos de milho e umedeça com a água. Junte também o sal. E deixe descansar por 20 minutos.</li>
+                <li>Coloque a mistura em uma cuscuzeira e cozinhe o cuscuz no vapor.</li>
+                <li>Misture a Qualy com a pimenta e o coentro e sirva com o cuscuz quente.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ref">
+        <h3>Acesse o 
+            <a href="https://www.qualy.com.br/receitas/cuscuz-nordestino" target="_blank"><b>SITE</b></a> 
+            para referência da receita
+        </h3>
+    </div>
+
+    <!-- Botões de Interatividade -->
+    <div class="buttons">
+        <button class="recipe-button" onclick="alterarTitulo()">Alterar Título</button>
+        <button class="recipe-button" onclick="alterarEstilo()">Alterar Estilo</button>
+        <button class="recipe-button" onclick="toggleIngredientes()">Ocultar/Mostrar Ingredientes</button>
+    </div>
+
+    <!-- Botões de Receitas -->
+    <div class="buttons">
+        <button class="recipe-button" onclick="abrirReceita('https://panelinha.com.br/receita/cuscuz-milho')">Cuscuz com ovo</button>
+        <button class="recipe-button" onclick="abrirReceita('https://www.qualy.com.br/receitas/cuscuz-nordestino/')">Cuscuz de Frigideira</button>
+        <button class="recipe-button" onclick="abrirReceita('https://www.tudogostoso.com.br/receita/61325-cuscuz-paulista.html')">Cuscuz Paulista</button>
+    </div>
+
+    <script>
+        // 1️ Alterar o conteúdo de um elemento HTML
+        function alterarTitulo() {
+            document.getElementById("tituloIngredientes").textContent = "Lista de Ingredientes";
+            document.getElementById("tituloPreparo").textContent = "Passo a Passo do Preparo";
+        }
+
+        // 2️ Abrir outra receita
+        function abrirReceita(url) {
+            window.open(url, '_blank');
+        }
+
+        // 3 Alterar estilos dinamicamente
+        function alterarEstilo() {
+            let refDiv = document.querySelector(".ref");
+            refDiv.style.backgroundColor = "#FFD700";  // Muda para amarelo dourado
+            refDiv.style.color = "black";
+            refDiv.style.fontWeight = "bold";
+        }
+
+        // 4️ Ocultar/Exibir elementos HTML
+        function toggleIngredientes() {
+            let ingredientesDiv = document.getElementById("ingredientes");
+            ingredientesDiv.classList.toggle("hidden");
+        }
+    </script>
+
+</body>
+</html>
